@@ -3,6 +3,10 @@
 Reproducible screening of a palm-oil frontier in Tapung, Riau, Indonesia,
 using Sentinel-2 NDVI change and Hansen Global Forest Change.
 
+![Land-use change over the Tapung palm-oil frontier, Riau, 2019–2024](map/landuse_change_map.png)
+
+<sub>Magenta = NDVI-flagged clearing · orange = Hansen forest loss (2020–2024) · red–green = NDVI change, over Sentinel-2 / Esri imagery.</sub>
+
 ## AOI and decision rule
 
 - AOI: `101.30, 0.30, 101.65, 0.65` (WGS 84), approximately 39 x 39 km.
