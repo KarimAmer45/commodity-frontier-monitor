@@ -1,0 +1,134 @@
+{
+  "created": "2026-08-04",
+  "analysis_engine": "Google Earth Engine",
+  "aoi_name": "Tapung palm-oil frontier, Riau, Indonesia",
+  "bbox_wgs84": [
+    101.3,
+    0.3,
+    101.65,
+    0.65
+  ],
+  "target_crs": "EPSG:32647",
+  "periods": {
+    "ndvi_before": [
+      "2019-01-01",
+      "2020-01-01"
+    ],
+    "ndvi_after": [
+      "2024-01-01",
+      "2025-01-01"
+    ],
+    "hansen_loss": [
+      2020,
+      2024
+    ]
+  },
+  "datasets": {
+    "sentinel2": "COPERNICUS/S2_SR_HARMONIZED",
+    "cloud_mask": "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED",
+    "hansen": "UMD/hansen/global_forest_change_2025_v1_13"
+  },
+  "parameters": {
+    "scene_cloud_limit_pct": 40,
+    "cloud_score_band": "cs",
+    "cloud_score_clear_threshold": 0.6,
+    "ndvi_change_threshold": -0.2,
+    "baseline_ndvi_threshold": 0.5,
+    "console_area_scale_m": 10
+  },
+  "results": {
+    "ndvi_flagged_ha": 7160.291200839292,
+    "hansen_loss_ha": 12446.156519155735,
+    "agreement_ha": 3392.1479100055817,
+    "ndvi_overlap_pct": 47.37444071559512,
+    "hansen_overlap_pct": 27.254581804308557,
+    "iou_pct": 20.920717821658382
+  },
+  "exports": [
+    {
+      "file": "ndvi_diff.tif",
+      "crs": "EPSG:32647",
+      "resolution_m": [
+        10.0,
+        10.0
+      ],
+      "width": 3901,
+      "height": 3875,
+      "bounds": [
+        755980.0,
+        33180.0,
+        794990.0,
+        71930.0
+      ],
+      "dtype": "float32",
+      "min": -1.3545507192611694,
+      "max": 1.0435705184936523,
+      "one_pixels": 0
+    },
+    {
+      "file": "clearing_mask.tif",
+      "crs": "EPSG:32647",
+      "resolution_m": [
+        10.0,
+        10.0
+      ],
+      "width": 3901,
+      "height": 3875,
+      "bounds": [
+        755980.0,
+        33180.0,
+        794990.0,
+        71930.0
+      ],
+      "dtype": "uint8",
+      "min": 0.0,
+      "max": 1.0,
+      "one_pixels": 717572
+    },
+    {
+      "file": "forest_loss_2020_2024.tif",
+      "crs": "EPSG:32647",
+      "resolution_m": [
+        30.0,
+        30.0
+      ],
+      "width": 1301,
+      "height": 1292,
+      "bounds": [
+        755970.0,
+        33180.0,
+        795000.0,
+        71940.0
+      ],
+      "dtype": "uint8",
+      "min": 0.0,
+      "max": 1.0,
+      "one_pixels": 139124
+    },
+    {
+      "file": "agreement_mask.tif",
+      "crs": "EPSG:32647",
+      "resolution_m": [
+        10.0,
+        10.0
+      ],
+      "width": 3901,
+      "height": 3875,
+      "bounds": [
+        755980.0,
+        33180.0,
+        794990.0,
+        71930.0
+      ],
+      "dtype": "uint8",
+      "min": 0.0,
+      "max": 1.0,
+      "one_pixels": 334346
+    }
+  ],
+  "cartographic_overlap": {
+    "agreement_pixels_10m": 334346,
+    "agreement_ha": 3343.46,
+    "note": "Derived after nearest-neighbour alignment of exported 30 m Hansen pixels to the 10 m clearing grid; authoritative metrics are the Earth Engine Console values above."
+  }
+}
