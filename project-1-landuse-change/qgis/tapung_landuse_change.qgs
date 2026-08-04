@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qgis projectname="Tapung land-use change" version="3.40.0-Bratislava" saveUserFull="karim" saveUser="karim">
+  <homePath path=""/><title>Land-use change over the Tapung palm-oil frontier, Riau, 2019-2024</title>
+  <projectCrs><spatialrefsys><proj4>+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs</proj4><srsid>32647</srsid><srid>32647</srid><authid>EPSG:32647</authid><description>WGS 84 / UTM zone 47N</description><projectionacronym>utm</projectionacronym><ellipsoidacronym>EPSG:7030</ellipsoidacronym><geographicflag>false</geographicflag></spatialrefsys></projectCrs>
+  <layer-tree-group checked="Qt::Checked" expanded="1" name=""><layer-tree-layer checked="Qt::Checked" id="ndvi_diff" name="NDVI change 2019-2024" providerKey="gdal" source="../data/processed/ndvi_diff.tif"/><layer-tree-layer checked="Qt::Checked" id="forest_loss" name="Hansen forest loss 2020-2024" providerKey="gdal" source="../data/processed/forest_loss_2020_2024.tif"/><layer-tree-layer checked="Qt::Checked" id="clearing" name="NDVI clearing flag" providerKey="gdal" source="../data/processed/clearing_mask.tif"/><layer-tree-layer checked="Qt::Checked" id="agreement" name="Agreement" providerKey="gdal" source="../data/processed/agreement_mask.tif"/></layer-tree-group>
+  <projectlayers><maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshMode="Disabled">
+              <id>ndvi_diff</id><datasource>../data/processed/ndvi_diff.tif</datasource><layername>NDVI change 2019-2024</layername>
+              <srs><spatialrefsys><wkt></wkt><proj4>+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs</proj4><srsid>32647</srsid><srid>32647</srid><authid>EPSG:32647</authid><description>WGS 84 / UTM zone 47N</description><projectionacronym>utm</projectionacronym><ellipsoidacronym>EPSG:7030</ellipsoidacronym><geographicflag>false</geographicflag></spatialrefsys></srs>
+              <provider>gdal</provider>
+            <rasterrenderer alphaBand="-1" band="1" classificationMin="-0.4" classificationMax="0.4" type="singlebandpseudocolor" opacity="1">
+              <rasterTransparency/>
+              <rastershader>
+                <colorrampshader colorRampType="INTERPOLATED" classificationMode="1" clip="0">
+                  <item alpha="255" value="-0.4" label="Vegetation loss" color="#9e1b32"/>
+                  <item alpha="255" value="0" label="No change" color="#f7f7f7"/>
+                  <item alpha="255" value="0.4" label="Vegetation gain" color="#1b7837"/>
+                </colorrampshader>
+              </rastershader>
+            </rasterrenderer>
+            </maplayer><maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshMode="Disabled">
+              <id>forest_loss</id><datasource>../data/processed/forest_loss_2020_2024.tif</datasource><layername>Hansen forest loss 2020-2024</layername>
+              <srs><spatialrefsys><wkt></wkt><proj4>+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs</proj4><srsid>32647</srsid><srid>32647</srid><authid>EPSG:32647</authid><description>WGS 84 / UTM zone 47N</description><projectionacronym>utm</projectionacronym><ellipsoidacronym>EPSG:7030</ellipsoidacronym><geographicflag>false</geographicflag></spatialrefsys></srs>
+              <provider>gdal</provider>
+            <rasterrenderer alphaBand="-1" band="1" type="paletted" opacity="0.8">
+              <rasterTransparency><singleValuePixelList><pixelListEntry min="0" max="0" percentTransparent="100"/></singleValuePixelList></rasterTransparency>
+              <colorPalette><paletteEntry alpha="255" value="1" label="Detected" color="#ff8c00"/></colorPalette>
+            </rasterrenderer>
+            </maplayer><maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshMode="Disabled">
+              <id>clearing</id><datasource>../data/processed/clearing_mask.tif</datasource><layername>NDVI clearing flag</layername>
+              <srs><spatialrefsys><wkt></wkt><proj4>+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs</proj4><srsid>32647</srsid><srid>32647</srid><authid>EPSG:32647</authid><description>WGS 84 / UTM zone 47N</description><projectionacronym>utm</projectionacronym><ellipsoidacronym>EPSG:7030</ellipsoidacronym><geographicflag>false</geographicflag></spatialrefsys></srs>
+              <provider>gdal</provider>
+            <rasterrenderer alphaBand="-1" band="1" type="paletted" opacity="0.8">
+              <rasterTransparency><singleValuePixelList><pixelListEntry min="0" max="0" percentTransparent="100"/></singleValuePixelList></rasterTransparency>
+              <colorPalette><paletteEntry alpha="255" value="1" label="Detected" color="#d900d9"/></colorPalette>
+            </rasterrenderer>
+            </maplayer><maplayer type="raster" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshMode="Disabled">
+              <id>agreement</id><datasource>../data/processed/agreement_mask.tif</datasource><layername>Agreement</layername>
+              <srs><spatialrefsys><wkt></wkt><proj4>+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs</proj4><srsid>32647</srsid><srid>32647</srid><authid>EPSG:32647</authid><description>WGS 84 / UTM zone 47N</description><projectionacronym>utm</projectionacronym><ellipsoidacronym>EPSG:7030</ellipsoidacronym><geographicflag>false</geographicflag></spatialrefsys></srs>
+              <provider>gdal</provider>
+            <rasterrenderer alphaBand="-1" band="1" type="paletted" opacity="0.8">
+              <rasterTransparency><singleValuePixelList><pixelListEntry min="0" max="0" percentTransparent="100"/></singleValuePixelList></rasterTransparency>
+              <colorPalette><paletteEntry alpha="255" value="1" label="Detected" color="#111111"/></colorPalette>
+            </rasterrenderer>
+            </maplayer></projectlayers>
+</qgis>
