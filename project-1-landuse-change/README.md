@@ -24,7 +24,6 @@ using Sentinel-2 NDVI change and Hansen Global Forest Change.
 - `map/landuse_change_map.png` and `output/pdf/Riau_LandUse_2019_2024.pdf` - map exports.
 - `report.md` and `output/pdf/landuse_change_report.pdf` - methods report.
 - `results.json` - measurements, parameters, and selected scene IDs.
-- `portfolio_text.md` - filled-in CV bullets, cover-letter hook, and interview caveat.
 
 ## Authoritative workflow
 

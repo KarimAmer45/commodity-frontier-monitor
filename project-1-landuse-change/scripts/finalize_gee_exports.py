@@ -158,36 +158,11 @@ def write_results(cartographic_agreement_pixels: int):
     (ROOT / "results.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
 
 
-def write_portfolio_text():
-    r = CONSOLE_RESULTS
-    text = f"""# Portfolio copy
-
-## CV entry
-
-**Satellite Land-Use-Change Monitoring - Sentinel-2, Google Earth Engine, QGIS**  
-*Google Earth Engine (JavaScript) | Sentinel-2 | Cloud Score+ | Hansen GFC | QGIS | NDVI change detection*
-
-- Built a Google Earth Engine pipeline generating Cloud Score+-masked Sentinel-2 NDVI composites over a 1,510 km2 palm-oil frontier in Riau, flagging approximately {r['ndvi_flagged_ha']:,.0f} ha of likely vegetation clearing between 2019 and 2024.
-- Cross-checked NDVI change against Hansen Global Forest Change v1.13 loss from 2020-2024: {r['agreement_ha']:,.0f} ha intersected, representing {r['ndvi_overlap_pct']:.1f}% of NDVI flags, {r['hansen_overlap_pct']:.1f}% of Hansen loss, and {r['iou_pct']:.1f}% intersection-over-union.
-- Produced projected GeoTIFF exports, a QGIS-ready map project, publication-ready map/report PDFs, reproducible parameters, and a limitations assessment for supply-chain deforestation-risk screening.
-
-## Cover-letter hook
-
-To ground my interest in land-use-change verification, I built a Google Earth Engine and QGIS-ready workflow that maps vegetation clearing over a palm-oil frontier in Riau from Sentinel-2 imagery and cross-checks the result against Hansen Global Forest Change. The screen flagged approximately {r['ndvi_flagged_ha']:,.0f} ha of likely clearing, with {r['agreement_ha']:,.0f} ha overlapping independent Hansen loss. Quantifying both agreement and disagreement between methods gave me a concrete feel for satellite-scale, methodology-driven risk assessment and the importance of documenting uncertainty.
-
-## Interview caveat
-
-The figures are screening outputs, not verified commodity attribution. The next defensible step is stratified validation against dated high-resolution imagery and parcel/concession data, followed by threshold calibration and uncertainty reporting.
-"""
-    (ROOT / "portfolio_text.md").write_text(text, encoding="utf-8")
-
-
 def main():
     preserve_local_mirror()
     promote_exports()
     cartographic_agreement_pixels = make_cartographic_agreement()
     write_results(cartographic_agreement_pixels)
-    write_portfolio_text()
     builder = load_builder()
     results = CONSOLE_RESULTS.copy()
     map_png, map_pdf = builder.render_map(results)
